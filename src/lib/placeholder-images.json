@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-speaking",
+      "description": "A person confidently speaking into a professional microphone in a podcasting setup",
+      "imageUrl": "https://images.unsplash.com/photo-1644573059917-2a672cb14112?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVyc29uJTIwc3BlYWtpbmd8ZW58MHx8fHwxNzY5NTQxNzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person speaking"
+    },
+    {
+      "id": "feature-feedback",
+      "description": "A close-up of a screen displaying analytical data and code snippets, representing AI feedback",
+      "imageUrl": "https://images.unsplash.com/photo-1686061594225-3e92c0cd51b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MHx8fHwxNzY5NDgwODUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "analytics dashboard"
+    },
+    {
+      "id": "feature-progress",
+      "description": "A modern digital dashboard showing a bar chart with an upward trend, indicating progress",
+      "imageUrl": "https://images.unsplash.com/photo-1762427354397-854a52e0ded7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9ncmVzcyUyMGNoYXJ0fGVufDB8fHx8MTc2OTQ5NjM1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "progress chart"
+    },
+    {
+      "id": "feature-roleplay",
+      "description": "Two professionals engaged in a formal conversation in a modern office, simulating a job interview",
+      "imageUrl": "https://images.unsplash.com/photo-1686771416282-3888ddaf249b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzY5NTMwMDg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business meeting"
+    },
+    {
+      "id": "dashboard-hero",
+      "description": "An abstract visualization of data points and connections on a dark background.",
+      "imageUrl": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzY5NDk2MzU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data abstract"
+    }
+  ]
 }
