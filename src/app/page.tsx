@@ -77,13 +77,14 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="relative h-64 md:h-auto md:aspect-square rounded-2xl overflow-hidden bg-muted flex items-center justify-center">
+            <div className="relative h-[300px] md:h-[500px] w-full overflow-hidden rounded-xl">
               {heroImage && (
                 <Image
                   src={heroImage.imageUrl}
                   alt={heroImage.description}
                   fill
-                  className="object-contain p-8"
+                  className="object-cover"
+                  priority
                   data-ai-hint={heroImage.imageHint}
                 />
               )}
