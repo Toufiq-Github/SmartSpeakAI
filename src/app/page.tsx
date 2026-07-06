@@ -58,10 +58,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                Your AI Speaking Coach
+                Your AI Productivity Partner
               </div>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-foreground font-headline">
-                The Gym for Your Spoken English
+                AI Voice for Productivity
               </h1>
               <p className="text-lg text-muted-foreground">
                 Stop just learning, start speaking. SpeakSmart AI is your personal
@@ -77,17 +77,16 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="relative h-64 md:h-auto md:aspect-square rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-64 md:h-auto md:aspect-square rounded-2xl overflow-hidden bg-muted flex items-center justify-center">
               {heroImage && (
                 <Image
                   src={heroImage.imageUrl}
                   alt={heroImage.description}
                   fill
-                  className="object-cover"
+                  className="object-contain p-8"
                   data-ai-hint={heroImage.imageHint}
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
             </div>
           </div>
         </section>

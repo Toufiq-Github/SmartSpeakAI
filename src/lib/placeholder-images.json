@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-speaking",
-      "description": "A person confidently speaking into a professional microphone in a podcasting setup",
-      "imageUrl": "https://images.unsplash.com/photo-1644573059917-2a672cb14112?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVyc29uJTIwc3BlYWtpbmd8ZW58MHx8fHwxNzY5NTQxNzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "person speaking"
+      "description": "Minimalist logo for Smart Speak AI featuring a microphone icon within a circular frame",
+      "imageUrl": "https://picsum.photos/seed/smartspeak-logo/600/600",
+      "imageHint": "microphone logo"
     },
     {
       "id": "feature-feedback",
