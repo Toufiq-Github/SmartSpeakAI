@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-speaking",
-      "description": "Minimalist logo for Smart Speak AI featuring a microphone icon within a circular frame",
-      "imageUrl": "https://picsum.photos/seed/smartspeak-logo/600/600",
-      "imageHint": "microphone logo"
+      "description": "Google Speaking Practice Feature interface demonstration",
+      "imageUrl": "https://favtutor.com/articles/wp-content/uploads/2024/05/Google-Speaking-Practice-Feature.jpg",
+      "imageHint": "speaking practice"
     },
     {
       "id": "feature-feedback",

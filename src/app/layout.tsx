@@ -4,7 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'SpeakSmart AI - The Gym for Your Spoken English',
+  title: 'SpeakSmart AI - AI Voice for Productivity',
   description:
     'Practice your spoken English with an AI partner. Get real-time feedback on pronunciation, grammar, and fluency. Track your progress and speak confidently.',
 };
