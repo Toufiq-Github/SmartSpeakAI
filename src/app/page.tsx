@@ -77,14 +77,14 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="w-full">
+            <div className="flex justify-center">
               {heroImage && (
                 <Image
                   src={heroImage.imageUrl}
                   alt={heroImage.description}
                   width={1200}
                   height={800}
-                  className="w-full h-auto block"
+                  className="w-full h-auto"
                   priority
                   data-ai-hint={heroImage.imageHint}
                 />
