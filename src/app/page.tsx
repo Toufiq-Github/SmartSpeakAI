@@ -1,12 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
-  BarChart,
-  BrainCircuit,
-  MessageCircle,
   Mic,
-  Repeat,
+  BrainCircuit,
   Trophy,
+  Repeat,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -77,19 +75,17 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="flex justify-center">
-              {heroImage && (
-                <Image
-                  src={heroImage.imageUrl}
-                  alt={heroImage.description}
-                  width={1200}
-                  height={800}
-                  className="w-full h-auto"
-                  priority
-                  data-ai-hint={heroImage.imageHint}
-                />
-              )}
-            </div>
+            {heroImage && (
+              <Image
+                src={heroImage.imageUrl}
+                alt={heroImage.description}
+                width={1200}
+                height={800}
+                className="w-full h-auto object-contain"
+                priority
+                data-ai-hint={heroImage.imageHint}
+              />
+            )}
           </div>
         </section>
 
@@ -105,24 +101,19 @@ export default function Home() {
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {features.map((feature) => {
-                const featureImage = PlaceHolderImages.find(
-                  (img) => img.id === feature.imageId
-                );
-                return (
-                  <Card key={feature.title} className="bg-background border hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      {feature.icon}
-                      <CardTitle className="pt-4 font-headline">{feature.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
-                        {feature.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+              {features.map((feature) => (
+                <Card key={feature.title} className="bg-background border hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    {feature.icon}
+                    <CardTitle className="pt-4 font-headline">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>

@@ -2,24 +2,28 @@
 
 Practice your spoken English with an AI partner. Get real-time feedback on pronunciation, grammar, and fluency.
 
-## Getting Started
+## Push to GitHub using the Workspace Terminal
 
-1.  Clone this repository (after pushing from Studio).
-2.  Install dependencies: `npm install`.
-3.  Run the development server: `npm run dev`.
-4.  Open [http://localhost:9002](http://localhost:9002) in your browser.
+You can push your code directly from the terminal at the bottom of your screen. Run these commands:
 
-## Deployment to GitHub
-
-To push the code from this Studio environment to your repository:
-
-1.  Open your local terminal in the project root.
-2.  Run the following commands:
+1.  **Initialize Git:**
     ```bash
     git init
+    ```
+
+2.  **Add your remote repository:**
+    ```bash
     git remote add origin https://github.com/Toufiq-Github/SmartSpeakAI.git
+    ```
+
+3.  **Stage and commit your changes:**
+    ```bash
     git add .
     git commit -m "Initial commit from SpeakSmart AI Studio"
+    ```
+
+4.  **Push to the main branch:**
+    ```bash
     git branch -M main
     git push -u origin main
     ```
