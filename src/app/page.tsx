@@ -321,7 +321,7 @@ export default function Home() {
                 <div className="relative z-10 space-y-10 md:space-y-16">
                   <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] animate-pulse">Speak English <br /> like a Native.</h2>
                   <p className="text-xl md:text-3xl text-primary-foreground/80 max-w-3xl mx-auto leading-relaxed font-bold">
-                      Transform your confidence in weeks, not years. Join 50,000+ successful learners today.
+                      Transform your confidence in weeks, not years. Join our successful learners today.
                   </p>
                   <div className="pt-8">
                     <Button asChild size="lg" className="h-20 px-16 text-2xl font-black bg-white text-primary hover:bg-gray-100 rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95">
