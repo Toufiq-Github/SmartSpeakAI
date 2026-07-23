@@ -24,6 +24,7 @@ import {
   TrendingUp,
   MessageCircle,
   LogOut,
+  Briefcase,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -272,10 +273,10 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {[
-                  { title: "Job Interview", desc: "Ace your next career move with tech & behavioral prep.", icon: BriefcaseIcon },
+                  { title: "Job Interview", desc: "Ace your next career move with tech & behavioral prep.", icon: Briefcase },
                   { title: "IELTS Speaking", desc: "Specific modules for Part 1, 2, and 3 simulation.", icon: GraduationCap },
                   { title: "Business Pitch", desc: "Refine your presentation and negotiation skills.", icon: TrendingUp },
-                  { title: "Daily Coffee", desc: "Casual small talk to build social confidence.", icon: MessageCircleIcon },
+                  { title: "Daily Coffee", desc: "Casual small talk to build social confidence.", icon: MessageCircle },
                   { title: "Emergency Help", desc: "Critical vocabulary for travel and unexpected events.", icon: Activity },
                   { title: "Academic Debate", desc: "Structured arguments for university environments.", icon: BrainCircuit }
                 ].map((s) => (
@@ -315,7 +316,7 @@ export default function Home() {
 
         {/* Final CTA */}
         <section className="container mx-auto px-4 py-24 md:py-48 text-center">
-            <div className="max-w-6xl mx-auto bg-primary text-white rounded-[3rem] md:rounded-[5rem] p-12 md:p-32 shadow-[0_50px_100px_rgba(16,47,82,0.3)] relative overflow-hidden">
+            <div className="max-w-6xl mx-auto bg-primary text-white rounded-[3rem] md:rounded-[5rem] p-12 md:p-32 shadow-[0_50px_100px_rgba(15,41,71,0.3)] relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-[100px]" />
                 <div className="relative z-10 space-y-10 md:space-y-16">
                   <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] animate-pulse">Speak English <br /> like a Native.</h2>
@@ -380,13 +381,3 @@ export default function Home() {
     </div>
   );
 }
-
-function BriefcaseIcon(props: any) {
-    return <Briefcase {...props} />
-}
-
-function MessageCircleIcon(props: any) {
-    return <MessageCircle {...props} />
-}
-
-import { Briefcase } from 'lucide-react';
