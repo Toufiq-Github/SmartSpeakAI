@@ -87,7 +87,7 @@ export default function Home() {
                   AI Voice for Productivity
                 </div>
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
-                  Master Your <span className="text-primary">Spoken English</span> with AI
+                  Master Your <span className="text-[#10B981]">Spoken English</span> with AI
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
                   Stop just learning, start speaking. SpeakSmart AI is your personal
@@ -121,7 +121,7 @@ export default function Home() {
                       <div className="h-8 w-8 rounded-full bg-emerald-100 flex items-center justify-center">
                         <Activity className="h-4 w-4 text-emerald-600" />
                       </div>
-                      <div className="text-xs font-bold">Fluency: 92%</div>
+                      <div className="text-xs font-bold text-emerald-900">Fluency: 92%</div>
                     </div>
                   </div>
 
