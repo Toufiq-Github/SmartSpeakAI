@@ -1,14 +1,14 @@
+
+'use client';
+
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from '@/components/ui/badge';
 import {
   Mic,
   BrainCircuit,
-  Trophy,
-  Repeat,
   ArrowRight,
-  ShieldCheck,
   Zap,
   Activity,
   Waves,
@@ -19,36 +19,40 @@ import {
   PlayCircle,
   BarChart3,
   Sparkles,
-  MessageSquare,
   GraduationCap,
   History,
   TrendingUp,
-  Layout,
   MessageCircle,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Logo from '@/components/logo';
+import { useUser, useAuth } from '@/firebase';
+import { signOut } from 'firebase/auth';
 
 export default function Home() {
+  const { user } = useUser();
+  const auth = useAuth();
   const screenshot = PlaceHolderImages.find((img) => img.id === 'hero-speaking');
   const feedbackImg = PlaceHolderImages.find((img) => img.id === 'feature-feedback');
-  const progressImg = PlaceHolderImages.find((img) => img.id === 'feature-progress');
-  const roleplayImg = PlaceHolderImages.find((img) => img.id === 'feature-roleplay');
+
+  const handleSignOut = () => {
+    if (auth) signOut(auth);
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-white font-body selection:bg-primary/10 selection:text-primary relative overflow-x-hidden">
       {/* Background Texture */}
       <div 
-        className="fixed inset-0 z-0 pointer-events-none opacity-[0.15] grayscale"
+        className="fixed inset-0 z-0 pointer-events-none opacity-[0.3] grayscale"
         style={{
           backgroundImage: `url('https://cdn.prod.website-files.com/63d98840a42cc68f41527a33/66b61b85b8e153d7f9801c4e_0c2113_9978482509ad47a3a8772a8449a392c3~mv2.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       />
-      <div className="fixed inset-0 z-0 pointer-events-none bg-gradient-to-b from-white via-white/80 to-white" />
+      <div className="fixed inset-0 z-0 pointer-events-none bg-gradient-to-b from-white/95 via-white/80 to-white/95 backdrop-blur-[2px]" />
 
       {/* Sticky Navigation */}
       <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-xl">
@@ -60,10 +64,18 @@ export default function Home() {
             <Link href="#about" className="text-sm font-semibold text-gray-500 hover:text-primary transition-colors">About</Link>
           </nav>
           <div className="flex items-center gap-2 sm:gap-4">
-            <Link href="/login" className="hidden sm:block text-sm font-semibold text-gray-500 hover:text-primary">Log in</Link>
-            <Button asChild size="sm" className="rounded-full px-6 font-bold shadow-lg shadow-primary/20 bg-primary hover:bg-primary/90">
-              <Link href="/speak">Start Speaking Free</Link>
-            </Button>
+            {user ? (
+              <>
+                <Button variant="ghost" size="sm" className="hidden sm:block font-bold text-gray-500" onClick={handleSignOut}>Log out</Button>
+                <Button asChild size="sm" className="rounded-full px-6 font-bold shadow-lg shadow-primary/20 bg-primary hover:bg-primary/90">
+                  <Link href="/speak">Practice Now</Link>
+                </Button>
+              </>
+            ) : (
+              <Button asChild size="sm" className="rounded-full px-6 font-bold shadow-lg shadow-primary/20 bg-primary hover:bg-primary/90">
+                <Link href="/login">Get Started</Link>
+              </Button>
+            )}
           </div>
         </div>
       </header>
@@ -86,7 +98,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 items-center pt-4 w-full sm:w-auto px-4">
                 <Button asChild size="lg" className="h-16 px-12 text-lg font-black rounded-full group w-full sm:w-auto shadow-2xl shadow-primary/40 hover:scale-105 transition-all">
-                  <Link href="/speak">
+                  <Link href={user ? "/speak" : "/login"}>
                     Start Speaking Free
                     <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
                   </Link>
@@ -123,7 +135,6 @@ export default function Home() {
                 </div>
                 
                 <div className="grid lg:grid-cols-12 gap-0 min-h-[500px]">
-                  {/* Mockup Left - Conversation */}
                   <div className="lg:col-span-8 p-8 md:p-12 border-r border-gray-100">
                     <div className="space-y-8">
                       <div className="flex gap-5 items-start">
@@ -143,7 +154,7 @@ export default function Home() {
                          </div>
                       </div>
                       <div className="flex items-center justify-center pt-16">
-                        <div className="bg-white rounded-full border border-gray-100 px-8 py-5 shadow-2xl flex items-center gap-10 group cursor-pointer hover:scale-105 transition-transform">
+                        <div className="bg-white rounded-full border border-gray-100 px-8 py-5 shadow-2xl flex items-center gap-10">
                           <Waves className="h-10 w-10 text-primary animate-pulse" />
                           <div className="h-14 w-14 rounded-full bg-primary flex items-center justify-center text-white shadow-lg">
                             <Mic className="h-7 w-7" />
@@ -153,7 +164,6 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  {/* Mockup Right - Analysis */}
                   <div className="lg:col-span-4 p-8 md:p-12 bg-gray-50/40">
                     <div className="space-y-12">
                       <div className="space-y-6">
@@ -214,7 +224,6 @@ export default function Home() {
         {/* Features Stacks */}
         <section id="features" className="py-32 md:py-48 space-y-48">
           <div className="container mx-auto px-4">
-            {/* Feature 1 */}
             <div className="grid lg:grid-cols-2 gap-24 items-center">
               <div className="space-y-8 order-2 lg:order-1">
                 <Badge variant="secondary" className="rounded-full bg-primary/10 text-primary border-primary/20 font-black px-5 py-2 uppercase tracking-[0.2em] text-[10px]">Natural Interaction</Badge>
@@ -242,7 +251,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Feature 2 */}
             <div className="grid lg:grid-cols-2 gap-24 items-center">
               <div className="relative aspect-square rounded-[3rem] bg-gray-50 border-8 border-white shadow-2xl overflow-hidden">
                 {feedbackImg && <Image src={feedbackImg.imageUrl} alt="Analysis Tools" fill className="object-cover" />}
@@ -286,11 +294,11 @@ export default function Home() {
                   { title: "Job Interview", desc: "Ace your next career move with tech & behavioral prep.", icon: BriefcaseIcon },
                   { title: "IELTS Speaking", desc: "Specific modules for Part 1, 2, and 3 simulation.", icon: GraduationCap },
                   { title: "Business Pitch", desc: "Refine your presentation and negotiation skills.", icon: TrendingUp },
-                  { title: "Daily Coffee", desc: "Casual small talk to build social confidence.", icon: MessageCircle },
+                  { title: "Daily Coffee", desc: "Casual small talk to build social confidence.", icon: MessageCircleIcon },
                   { title: "Emergency Help", desc: "Critical vocabulary for travel and unexpected events.", icon: Activity },
                   { title: "Academic Debate", desc: "Structured arguments for university environments.", icon: BrainCircuit }
                 ].map((s) => (
-                    <Card key={s.title} className="p-8 rounded-[2.5rem] border-none shadow-xl hover:shadow-2xl transition-all cursor-pointer group">
+                    <Card key={s.title} className="p-8 rounded-[2.5rem] border-none shadow-xl hover:shadow-2xl transition-all cursor-pointer group bg-white">
                         <div className="h-14 w-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
                             <s.icon className="h-7 w-7" />
                         </div>
@@ -302,35 +310,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* How It Works */}
-        <section className="py-32 md:py-48 bg-white text-gray-900">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-24">
-                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-8">4 Steps to Mastery.</h2>
-                    <p className="text-xl text-gray-500 font-bold">The fastest way to achieve native-level fluency.</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
-                    <div className="hidden md:block absolute top-12 left-0 right-0 h-[2px] bg-gray-100 -z-10" />
-                    {[
-                        { step: "01", title: "Select Scenario", desc: "Pick a real-world topic or casual mode." },
-                        { step: "02", title: "Start Speaking", desc: "Converse with our human-like AI partner." },
-                        { step: "03", title: "Deep Analysis", desc: "Get precision feedback on every sentence." },
-                        { step: "04", title: "Track Growth", desc: "Watch your scores climb in the dashboard." }
-                    ].map((s) => (
-                        <div key={s.step} className="text-center space-y-6">
-                            <div className="h-24 w-24 rounded-full bg-white border-8 border-gray-50 flex items-center justify-center mx-auto text-2xl font-black text-primary shadow-xl">
-                                {s.step}
-                            </div>
-                            <h4 className="text-xl font-black">{s.title}</h4>
-                            <p className="text-gray-500 text-sm font-bold leading-relaxed px-4">{s.desc}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
         {/* FAQ Section */}
-        <section className="py-32 bg-gray-50">
+        <section className="py-32 bg-white">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 className="text-4xl md:text-5xl font-black text-center mb-16 tracking-tight">Common Questions.</h2>
             <Accordion type="single" collapsible className="w-full space-y-4">
@@ -340,7 +321,7 @@ export default function Home() {
                 { q: "Can I use it on my phone?", a: "Absolutely! SpeakSmart AI is fully optimized for mobile browsers, allowing you to practice anywhere." },
                 { q: "Does it support British English?", a: "Yes, you can choose between US and UK English accents for both recognition and feedback." }
               ].map((faq, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="bg-white border-none rounded-3xl px-8 shadow-sm">
+                <AccordionItem key={i} value={`item-${i}`} className="bg-gray-50 border-none rounded-3xl px-8 shadow-sm">
                   <AccordionTrigger className="text-lg font-bold hover:no-underline py-6">{faq.q}</AccordionTrigger>
                   <AccordionContent className="text-gray-500 font-bold pb-6 leading-relaxed">
                     {faq.a}
@@ -362,7 +343,7 @@ export default function Home() {
                   </p>
                   <div className="pt-8">
                     <Button asChild size="lg" className="h-20 px-16 text-2xl font-black bg-white text-primary hover:bg-gray-100 rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95">
-                      <Link href="/speak">Start Your First Session</Link>
+                      <Link href={user ? "/speak" : "/login"}>Start Your First Session</Link>
                     </Button>
                   </div>
                 </div>
@@ -421,6 +402,10 @@ export default function Home() {
 
 function BriefcaseIcon(props: any) {
     return <Briefcase {...props} />
+}
+
+function MessageCircleIcon(props: any) {
+    return <MessageCircle {...props} />
 }
 
 import { Briefcase } from 'lucide-react';
