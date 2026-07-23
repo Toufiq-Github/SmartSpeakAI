@@ -202,25 +202,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Metrics Section - Blocks */}
-        <section className="bg-white border-y border-gray-50 py-20 relative overflow-hidden">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
-              {[
-                { label: "Sessions Practiced", value: "1.5M+" },
-                { label: "Feedback Accuracy", value: "98.2%" },
-                { label: "User Rating", value: "4.95" },
-                { label: "Global Users", value: "120k+" },
-              ].map((m, i) => (
-                <div key={i} className="space-y-4 group">
-                  <div className="text-4xl md:text-6xl font-black text-gray-900 tracking-tighter group-hover:text-primary transition-colors">{m.value}</div>
-                  <div className="text-[10px] md:text-xs font-black text-gray-400 uppercase tracking-[0.3em]">{m.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Features Stacks */}
         <section id="features" className="py-32 md:py-48 space-y-48 bg-white">
           <div className="container mx-auto px-4">
