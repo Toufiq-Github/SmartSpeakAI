@@ -8,6 +8,8 @@ import {
   ArrowRight,
   ShieldCheck,
   Zap,
+  Activity,
+  Waves,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -16,25 +18,25 @@ import Logo from '@/components/logo';
 
 const features = [
   {
-    icon: <Mic className="h-8 w-8 text-primary" />,
+    icon: <Mic className="h-7 w-7 text-primary" />,
     title: 'Voice Engine',
     description:
       'Engage in natural, spoken conversations with our AI. It listens, understands, and responds like a real person.',
   },
   {
-    icon: <BrainCircuit className="h-8 w-8 text-primary" />,
+    icon: <BrainCircuit className="h-7 w-7 text-primary" />,
     title: 'Real-Time Feedback',
     description:
       "Receive instant feedback on grammar, pronunciation, and vocabulary after you speak. Don't wait to improve.",
   },
   {
-    icon: <Trophy className="h-8 w-8 text-primary" />,
+    icon: <Trophy className="h-7 w-7 text-primary" />,
     title: 'Detailed Analysis',
     description:
       'Get a breakdown of your performance after each session, including fluency, confidence, and accuracy scores.',
   },
   {
-    icon: <Repeat className="h-8 w-8 text-primary" />,
+    icon: <Repeat className="h-7 w-7 text-primary" />,
     title: 'Guided Modes',
     description:
       'Practice with topic-based prompts or simulate real-world scenarios like job interviews to build practical skills.',
@@ -46,7 +48,7 @@ export default function Home() {
 
   return (
     <div className="relative flex flex-col min-h-screen bg-background overflow-x-hidden">
-      {/* Background Image Layer - Subtle visibility for clean white theme */}
+      {/* Background Image Layer */}
       {bgImage && (
         <div className="fixed inset-0 z-0 pointer-events-none">
           <Image
@@ -56,7 +58,7 @@ export default function Home() {
             className="object-cover opacity-5 grayscale"
             priority
           />
-          <div className="absolute inset-0 bg-white/90" />
+          <div className="absolute inset-0 bg-white/95" />
         </div>
       )}
 
@@ -65,10 +67,10 @@ export default function Home() {
         <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <Logo />
-            <nav className="hidden md:flex items-center gap-6">
+            <nav className="hidden md:flex items-center gap-8">
               <Link href="#features" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Features</Link>
               <Link href="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Dashboard</Link>
-              <Button asChild size="sm">
+              <Button asChild size="sm" className="font-semibold">
                 <Link href="/speak">Start Speaking</Link>
               </Button>
             </nav>
@@ -76,56 +78,107 @@ export default function Home() {
         </header>
 
         <main className="flex-grow">
-          {/* Hero Section - Block Style */}
-          <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 md:pt-20 md:pb-32">
-            <div className="grid lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-7 space-y-8 animate-in fade-in slide-in-from-top-4 duration-700">
-                <div className="inline-flex items-center gap-2 bg-primary/5 text-primary px-4 py-1.5 rounded-full text-sm font-semibold border border-primary/10">
+          {/* Hero Section */}
+          <section className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 md:pt-16 md:pb-32">
+            <div className="grid lg:grid-cols-12 gap-16 items-center">
+              <div className="lg:col-span-7 space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold border border-primary/20">
                   <Zap className="h-4 w-4" />
                   AI Voice for Productivity
                 </div>
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
                   Master Your <span className="text-primary">Spoken English</span> with AI
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-2xl">
+                <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
                   Stop just learning, start speaking. SpeakSmart AI is your personal
                   voice partner for practicing English. Get instant feedback and build real-world confidence.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild size="lg" className="h-14 px-8 text-lg font-semibold group shadow-lg shadow-primary/20">
+                <div className="flex flex-col sm:flex-row gap-5">
+                  <Button asChild size="lg" className="h-14 px-10 text-lg font-bold group shadow-xl shadow-primary/20">
                     <Link href="/speak">
                       Start Your First Session
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Button>
-                  <Button asChild variant="outline" size="lg" className="h-14 px-8 text-lg font-semibold">
+                  <Button asChild variant="outline" size="lg" className="h-14 px-10 text-lg font-bold border-2">
                     <Link href="#features">Explore Features</Link>
                   </Button>
                 </div>
-                <div className="flex items-center gap-6 pt-4 text-muted-foreground text-sm font-medium">
-                  <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-green-500" /> Private Practice</div>
-                  <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-green-500" /> 24/7 Availability</div>
+                <div className="flex items-center gap-8 pt-6 text-muted-foreground text-sm font-semibold uppercase tracking-wider">
+                  <div className="flex items-center gap-2.5"><ShieldCheck className="h-5 w-5 text-emerald-600" /> Private Practice</div>
+                  <div className="flex items-center gap-2.5"><ShieldCheck className="h-5 w-5 text-emerald-600" /> 24/7 Availability</div>
                 </div>
               </div>
               
-              {/* Hero Visual Block */}
+              {/* Hero Visual Block - Upscaled Right Side */}
               <div className="lg:col-span-5 hidden lg:block">
-                <div className="relative aspect-square bg-gradient-to-br from-primary/5 to-primary/10 rounded-3xl border border-primary/10 shadow-inner flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent opacity-50" />
-                  <Mic className="h-32 w-32 text-primary/40" />
-                  <div className="absolute bottom-8 left-8 right-8 bg-white/80 backdrop-blur-md p-6 rounded-2xl border border-white/20 shadow-xl">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <BrainCircuit className="h-5 w-5 text-primary" />
+                <div className="relative aspect-[4/5] bg-slate-50 rounded-[2.5rem] border border-slate-200 shadow-2xl flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-40" />
+                  
+                  {/* Floating Tech Elements */}
+                  <div className="absolute top-12 right-12 animate-bounce duration-[3000ms]">
+                    <div className="bg-white/80 backdrop-blur-sm p-4 rounded-2xl border border-white/50 shadow-lg flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-full bg-emerald-100 flex items-center justify-center">
+                        <Activity className="h-4 w-4 text-emerald-600" />
                       </div>
-                      <div>
-                        <div className="text-sm font-bold">Real-time Feedback</div>
-                        <div className="text-xs text-muted-foreground">Analyzing pronunciation...</div>
+                      <div className="text-xs font-bold">Fluency: 92%</div>
+                    </div>
+                  </div>
+
+                  <div className="absolute left-8 top-1/3 -translate-y-1/2">
+                    <div className="bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-white/60 shadow-xl flex flex-col gap-2">
+                      <div className="flex items-center gap-2">
+                         <Waves className="h-4 w-4 text-primary animate-pulse" />
+                         <span className="text-[10px] font-bold text-muted-foreground uppercase">Real-time Waveform</span>
+                      </div>
+                      <div className="flex gap-1 items-end h-8">
+                        <div className="w-1 bg-primary/40 rounded-full h-1/2 animate-pulse" />
+                        <div className="w-1 bg-primary/60 rounded-full h-3/4 animate-pulse delay-75" />
+                        <div className="w-1 bg-primary rounded-full h-full animate-pulse delay-150" />
+                        <div className="w-1 bg-primary/60 rounded-full h-2/3 animate-pulse delay-200" />
+                        <div className="w-1 bg-primary/40 rounded-full h-1/3 animate-pulse delay-300" />
                       </div>
                     </div>
-                    <div className="space-y-2">
-                      <div className="h-2 bg-primary/10 rounded-full w-full" />
-                      <div className="h-2 bg-primary/10 rounded-full w-3/4" />
+                  </div>
+
+                  {/* Main Interaction Card */}
+                  <div className="relative z-10 flex flex-col items-center">
+                    <div className="w-32 h-32 rounded-full bg-white shadow-inner border border-slate-100 flex items-center justify-center mb-10 group cursor-pointer hover:scale-105 transition-transform">
+                      <div className="w-24 h-24 rounded-full bg-primary/5 flex items-center justify-center relative">
+                        <div className="absolute inset-0 rounded-full bg-primary/10 animate-ping opacity-20" />
+                        <Mic className="h-10 w-10 text-primary" />
+                      </div>
+                    </div>
+                    
+                    <div className="w-[85%] bg-white/95 backdrop-blur-xl p-6 rounded-3xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.1)] space-y-5">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                            <BrainCircuit className="h-5 w-5 text-primary" />
+                          </div>
+                          <div>
+                            <div className="text-sm font-bold">Feedback Analysis</div>
+                            <div className="text-[10px] text-muted-foreground uppercase font-bold tracking-tighter">Gemini 2.5 Flash Engine</div>
+                          </div>
+                        </div>
+                        <div className="flex gap-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50 animate-pulse delay-100" />
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between text-[11px] font-bold text-muted-foreground">
+                          <span>Pronunciation</span>
+                          <span className="text-primary">Perfect</span>
+                        </div>
+                        <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="h-full bg-primary w-[88%] rounded-full shadow-[0_0_10px_rgba(0,0,0,0.1)]" />
+                        </div>
+                        <div className="p-3 bg-primary/5 rounded-xl border border-primary/10 italic text-[13px] text-primary font-medium leading-relaxed">
+                          "Your pronunciation of ' Productivity ' is clear and natural."
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -133,28 +186,27 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Features Grid - Modular Block System */}
-          <section id="features" className="bg-muted/30 py-24 border-y border-border/50">
+          {/* Features Grid */}
+          <section id="features" className="bg-slate-50 py-32 border-y border-slate-200">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center space-y-4 mb-16">
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+              <div className="text-center space-y-6 mb-20">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
                   A Smarter Way to Practice
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Powerful training tools designed to make you a more confident English speaker.
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                  Powerful training tools designed to build your confidence and fluency in real-world situations.
                 </p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {features.map((feature) => (
-                  <Card key={feature.title} className="group hover:shadow-xl transition-all duration-300 border-border/50 bg-background/50 backdrop-blur-sm overflow-hidden flex flex-col h-full">
-                    <div className="h-2 w-full bg-primary/10" />
-                    <CardHeader className="pt-8">
-                      <div className="mb-4 bg-primary/5 w-14 h-14 rounded-2xl flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                  <Card key={feature.title} className="group hover:shadow-2xl transition-all duration-500 border-slate-200 bg-white shadow-sm flex flex-col h-full rounded-2xl">
+                    <CardHeader className="pt-10 pb-6">
+                      <div className="mb-6 bg-primary/5 w-16 h-16 rounded-[1.25rem] flex items-center justify-center group-hover:bg-primary/10 transition-colors shadow-sm">
                         {feature.icon}
                       </div>
-                      <CardTitle className="text-xl font-bold">{feature.title}</CardTitle>
+                      <CardTitle className="text-xl font-bold text-slate-900 leading-tight">{feature.title}</CardTitle>
                     </CardHeader>
-                    <CardContent className="flex-grow">
+                    <CardContent className="flex-grow pb-10">
                       <p className="text-muted-foreground leading-relaxed">
                         {feature.description}
                       </p>
@@ -166,18 +218,18 @@ export default function Home() {
           </section>
 
           {/* CTA Block */}
-          <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
-              <div className="max-w-4xl mx-auto bg-primary text-primary-foreground rounded-[2rem] p-12 md:p-20 shadow-2xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+          <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+              <div className="max-w-5xl mx-auto bg-slate-900 text-white rounded-[3rem] p-16 md:p-24 shadow-[0_30px_60px_rgba(0,0,0,0.15)] relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl opacity-50 group-hover:opacity-70 transition-opacity" />
+                  <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
                   
-                  <div className="relative z-10 space-y-8">
-                    <h2 className="text-3xl md:text-5xl font-bold">Ready to Find Your Voice?</h2>
-                    <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">
+                  <div className="relative z-10 space-y-10">
+                    <h2 className="text-4xl md:text-6xl font-bold tracking-tight">Ready to Find Your Voice?</h2>
+                    <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
                         No more fear of judgment. No more expensive tutors. Just you and your AI coach, available 24/7.
                     </p>
-                    <div className="pt-4">
-                      <Button asChild size="lg" variant="secondary" className="h-14 px-12 text-lg font-bold">
+                    <div className="pt-6">
+                      <Button asChild size="lg" className="h-16 px-14 text-xl font-bold bg-white text-slate-900 hover:bg-slate-100 shadow-xl shadow-white/10">
                         <Link href="/speak">Start Your Free Session Now</Link>
                       </Button>
                     </div>
@@ -186,16 +238,16 @@ export default function Home() {
           </section>
         </main>
 
-        <footer className="bg-background border-t border-border/50 mt-auto">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+        <footer className="bg-white border-t border-slate-200 mt-auto">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-10">
               <Logo />
-              <div className="flex gap-8 text-sm font-medium text-muted-foreground">
+              <div className="flex gap-10 text-sm font-bold text-muted-foreground tracking-wide">
                 <Link href="#" className="hover:text-primary transition-colors">Terms</Link>
                 <Link href="#" className="hover:text-primary transition-colors">Privacy</Link>
                 <Link href="#" className="hover:text-primary transition-colors">Support</Link>
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground font-medium">
                 &copy; {new Date().getFullYear()} SpeakSmart AI. All rights reserved.
               </p>
             </div>
