@@ -20,7 +20,7 @@ export default function DashboardClient() {
   }, []);
 
   if (!isClient) {
-    return null; // Or a loading skeleton
+    return null;
   }
 
   if (sessions.length === 0) {
@@ -43,61 +43,66 @@ export default function DashboardClient() {
   }));
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 md:space-y-8">
       <Card>
-        <CardHeader>
-          <CardTitle>Overall Score Trends</CardTitle>
+        <CardHeader className="p-4 md:p-6">
+          <CardTitle className="text-xl md:text-2xl">Overall Score Trends</CardTitle>
           <CardDescription>Your average scores over the last few sessions.</CardDescription>
         </CardHeader>
-        <CardContent>
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={chartData}>
-              <XAxis dataKey="name" stroke="hsl(var(--foreground))" fontSize={12} tickLine={false} axisLine={false} />
-              <YAxis stroke="hsl(var(--foreground))" fontSize={12} tickLine={false} axisLine={false} domain={[0, 100]} />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "hsl(var(--card))",
-                  borderColor: "hsl(var(--border))"
-                }}
-              />
-              <Legend />
-              <Bar dataKey="Fluency" fill="hsl(var(--chart-1))" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="Pronunciation" fill="hsl(var(--chart-2))" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="Grammar" fill="hsl(var(--chart-3))" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="Confidence" fill="hsl(var(--chart-4))" radius={[4, 4, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+        <CardContent className="p-2 md:p-6 overflow-hidden">
+          <div className="h-[250px] md:h-[350px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                <XAxis dataKey="name" stroke="hsl(var(--foreground))" fontSize={10} tickLine={false} axisLine={false} />
+                <YAxis stroke="hsl(var(--foreground))" fontSize={10} tickLine={false} axisLine={false} domain={[0, 100]} />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: "hsl(var(--card))",
+                    borderColor: "hsl(var(--border))",
+                    fontSize: "12px"
+                  }}
+                />
+                <Legend iconSize={8} wrapperStyle={{ fontSize: '10px', paddingTop: '10px' }} />
+                <Bar dataKey="Fluency" fill="hsl(var(--chart-1))" radius={[2, 2, 0, 0]} />
+                <Bar dataKey="Pronunciation" fill="hsl(var(--chart-2))" radius={[2, 2, 0, 0]} />
+                <Bar dataKey="Grammar" fill="hsl(var(--chart-3))" radius={[2, 2, 0, 0]} />
+                <Bar dataKey="Confidence" fill="hsl(var(--chart-4))" radius={[2, 2, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
         </CardContent>
       </Card>
 
       <Card>
-        <CardHeader>
-          <CardTitle>Session History</CardTitle>
+        <CardHeader className="p-4 md:p-6">
+          <CardTitle className="text-xl md:text-2xl">Session History</CardTitle>
           <CardDescription>A detailed log of all your practice sessions.</CardDescription>
         </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Date</TableHead>
-                <TableHead className="text-right">Fluency</TableHead>
-                <TableHead className="text-right">Pronunciation</TableHead>
-                <TableHead className="text-right">Grammar</TableHead>
-                <TableHead className="text-right">Confidence</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {sessions.slice().reverse().map((session) => (
-                <TableRow key={session.date}>
-                  <TableCell className="font-medium">{format(new Date(session.date), 'PPp')}</TableCell>
-                  <TableCell className="text-right">{session.fluencyScore}</TableCell>
-                  <TableCell className="text-right">{session.pronunciationScore}</TableCell>
-                  <TableCell className="text-right">{session.grammarAccuracyScore}</TableCell>
-                  <TableCell className="text-right">{session.confidenceScore}</TableCell>
+        <CardContent className="p-0 md:p-6">
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="min-w-[120px]">Date</TableHead>
+                  <TableHead className="text-right">Fluency</TableHead>
+                  <TableHead className="text-right">Pronunciation</TableHead>
+                  <TableHead className="text-right hidden sm:table-cell">Grammar</TableHead>
+                  <TableHead className="text-right hidden sm:table-cell">Confidence</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {sessions.slice().reverse().map((session, idx) => (
+                  <TableRow key={`${session.date}-${idx}`}>
+                    <TableCell className="font-medium text-xs md:text-sm">{format(new Date(session.date), 'PP')}</TableCell>
+                    <TableCell className="text-right text-xs md:text-sm">{session.fluencyScore}</TableCell>
+                    <TableCell className="text-right text-xs md:text-sm">{session.pronunciationScore}</TableCell>
+                    <TableCell className="text-right text-xs md:text-sm hidden sm:table-cell">{session.grammarAccuracyScore}</TableCell>
+                    <TableCell className="text-right text-xs md:text-sm hidden sm:table-cell">{session.confidenceScore}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
     </div>

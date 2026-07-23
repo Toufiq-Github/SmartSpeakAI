@@ -111,42 +111,45 @@ export default function SpeakClient() {
   };
 
   return (
-    <div className="flex h-screen flex-col bg-card">
-      <header className="flex items-center justify-between border-b p-4">
-        <Logo />
+    <div className="flex flex-col min-h-screen md:h-screen bg-card overflow-hidden">
+      <header className="flex items-center justify-between border-b p-4 bg-white shrink-0">
+        <Logo className="text-xl md:text-2xl" />
         {sessionStarted && (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 md:gap-4">
             <Button
               variant="destructive"
+              size="sm"
               onClick={handleEndSession}
               disabled={isLoading || isListening || isSpeaking || isProcessing}
             >
-              End Session
+              End
             </Button>
-            <Button asChild variant="outline"><Link href="/dashboard">Dashboard</Link></Button>
+            <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex"><Link href="/dashboard">Dashboard</Link></Button>
             </div>
         )}
       </header>
 
       {!sessionStarted ? (
-        <ModeSelector onStart={handleStartSession} />
+        <div className="flex-1 overflow-y-auto">
+          <ModeSelector onStart={handleStartSession} />
+        </div>
       ) : (
-        <div className="flex flex-1 flex-col overflow-hidden">
+        <div className="flex flex-1 flex-col overflow-hidden relative">
           <ConversationArea messages={messages} isLoading={isLoading} />
 
-          <div className="border-t p-4">
+          <div className="border-t p-4 bg-white shrink-0">
             <div className="relative mx-auto max-w-2xl">
               <div className="flex gap-2">
                  <Button
                     onClick={isListening ? stopListening : startListening}
                     disabled={isLoading || isSpeaking || isProcessing}
-                    className="group transition-all duration-300"
+                    className="group transition-all duration-300 shrink-0"
                     size="icon"
                   >
                     {isListening ? (
-                      <Square className="h-6 w-6 text-destructive animate-pulse" />
+                      <Square className="h-5 w-5 md:h-6 md:w-6 text-destructive animate-pulse" />
                     ) : (
-                      <Mic className="h-6 w-6" />
+                      <Mic className="h-5 w-5 md:h-6 md:w-6" />
                     )}
                   </Button>
                   <form onSubmit={handleTextInputSubmit} className="flex-1 flex gap-2">
@@ -154,12 +157,12 @@ export default function SpeakClient() {
                       type="text"
                       value={textInput}
                       onChange={(e) => setTextInput(e.target.value)}
-                      placeholder="Type your message or use the microphone..."
-                      className="w-full rounded-md border border-input bg-background px-4 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      placeholder="Type your message..."
+                      className="w-full rounded-md border border-input bg-background px-3 md:px-4 py-2 text-sm md:text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       disabled={isListening || isLoading || isSpeaking || isProcessing}
                     />
-                    <Button type="submit" size="icon" disabled={!textInput || isListening || isLoading || isSpeaking || isProcessing}>
-                      <Send className="h-5 w-5" />
+                    <Button type="submit" size="icon" className="shrink-0" disabled={!textInput || isListening || isLoading || isSpeaking || isProcessing}>
+                      <Send className="h-4 w-4 md:h-5 md:w-5" />
                     </Button>
                   </form>
               </div>
