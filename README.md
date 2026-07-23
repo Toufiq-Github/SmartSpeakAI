@@ -1,10 +1,10 @@
-# SpeakSmart AI - AI Voice for Productivity
+# SpeakSmart AI - Practice Spoken English
 
-Practice your spoken English with an AI partner. Get real-time feedback on pronunciation, grammar, and fluency.
+Practice your spoken English with an AI partner. This tool provides real-time feedback on pronunciation, grammar, and fluency.
 
-## Push to GitHub using the Workspace Terminal
+## Push to GitHub
 
-You can push your code directly from the terminal at the bottom of your screen. Run these commands:
+Run these commands in your terminal:
 
 1.  **Initialize Git:**
     ```bash
@@ -19,7 +19,7 @@ You can push your code directly from the terminal at the bottom of your screen. 
 3.  **Stage and commit your changes:**
     ```bash
     git add .
-    git commit -m "Initial commit from SpeakSmart AI Studio"
+    git commit -m "Initial commit"
     ```
 
 4.  **Push to the main branch:**
@@ -30,20 +30,14 @@ You can push your code directly from the terminal at the bottom of your screen. 
 
 ## Deployment to Vercel
 
-Once your code is on GitHub:
+1.  Push your code to the GitHub repo linked above.
+2.  Import the repository into Vercel.
+3.  Add the `GOOGLE_GENAI_API_KEY` to your environment variables.
+4.  Deploy.
 
-1.  Log in to your [Vercel Dashboard](https://vercel.com/dashboard).
-2.  Click **"Add New..."** and then **"Project"**.
-3.  Import the `SmartSpeakAI` repository from your GitHub.
-4.  Ensure the Framework Preset is set to **Next.js**.
-5.  Add your environment variables (like `GOOGLE_GENAI_API_KEY`) in the "Environment Variables" section.
-6.  Click **Deploy**.
+## Technical Details
 
-## Tech Stack
-
-- **Framework:** Next.js 15 (App Router)
-- **AI Engine:** Google Genkit (Gemini 2.5 Flash)
-- **UI Components:** Shadcn UI, Tailwind CSS
+- **Frontend:** Next.js 15
+- **AI:** Google Genkit (Gemini 2.5 Flash)
 - **Database/Auth:** Firebase
-- **Icons:** Lucide React
-- **Charts:** Recharts
+- **Styling:** Tailwind CSS + Shadcn UI
