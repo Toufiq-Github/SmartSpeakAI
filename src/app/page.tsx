@@ -17,28 +17,24 @@ const features = [
     title: 'Voice Conversation Engine',
     description:
       'Engage in natural, spoken conversations with our AI. It listens, understands, and responds like a real person.',
-    imageId: 'feature-feedback',
   },
   {
     icon: <BrainCircuit className="h-8 w-8 text-primary" />,
     title: 'Real-Time Feedback',
     description:
       "Receive instant, actionable feedback on your grammar, pronunciation, and vocabulary after you speak. Don't wait to improve.",
-    imageId: 'feature-progress',
   },
   {
     icon: <Trophy className="h-8 w-8 text-primary" />,
     title: 'Speaking Score & Analysis',
     description:
       'Get a detailed breakdown of your performance after each session, including fluency, confidence, and accuracy scores.',
-    imageId: 'feature-roleplay',
   },
   {
     icon: <Repeat className="h-8 w-8 text-primary" />,
     title: 'Guided & Roleplay Modes',
     description:
       'Practice with topic-based prompts or simulate real-world scenarios like job interviews to build practical skills.',
-    imageId: 'hero-speaking',
   },
 ];
 
@@ -54,10 +50,11 @@ export default function Home() {
             src={bgImage.imageUrl}
             alt="Background"
             fill
-            className="object-cover opacity-30 grayscale"
+            className="object-cover opacity-50 grayscale"
             priority
           />
-          <div className="absolute inset-0 bg-background/40" />
+          {/* Matte Dark Overlay */}
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-[2px]" />
         </div>
       )}
 
@@ -70,7 +67,7 @@ export default function Home() {
         <main className="flex-grow">
           <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <div className="max-w-3xl mx-auto text-center space-y-8">
-              <div className="inline-block bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-md">
+              <div className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold border border-primary/20">
                 Your AI Productivity Partner
               </div>
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground font-headline">
@@ -82,17 +79,17 @@ export default function Home() {
                 your progress, and build real-world confidence.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="font-semibold text-lg px-8">
+                <Button asChild size="lg" className="font-semibold text-lg px-8 bg-primary text-primary-foreground hover:bg-primary/90">
                   <Link href="/speak">Start Speaking for Free</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="font-semibold text-lg px-8 backdrop-blur-sm">
+                <Button asChild size="lg" variant="outline" className="font-semibold text-lg px-8 border-primary/20 bg-background/50 hover:bg-accent">
                   <Link href="#features">Learn More</Link>
                 </Button>
               </div>
             </div>
           </section>
 
-          <section id="features" className="bg-card/40 backdrop-blur-md py-16 md:py-24 border-y">
+          <section id="features" className="bg-secondary/30 backdrop-blur-md py-16 md:py-24 border-y border-border/50">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center space-y-4 mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold font-headline">
@@ -105,7 +102,7 @@ export default function Home() {
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {features.map((feature) => (
-                  <Card key={feature.title} className="bg-background/60 backdrop-blur-sm border hover:shadow-lg transition-shadow">
+                  <Card key={feature.title} className="bg-background/40 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300">
                     <CardHeader>
                       {feature.icon}
                       <CardTitle className="pt-4 font-headline">{feature.title}</CardTitle>
@@ -134,7 +131,7 @@ export default function Home() {
           </section>
         </main>
 
-        <footer className="bg-card/60 backdrop-blur-sm border-t mt-auto">
+        <footer className="bg-background border-t border-border/50 mt-auto">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-between items-center">
             <Logo />
             <p className="text-sm text-muted-foreground">
