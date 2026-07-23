@@ -1,7 +1,6 @@
-
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '@/firebase';
 import { 
   signInWithEmailAndPassword, 
@@ -15,8 +14,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useRouter } from 'next/navigation';
-import { MessageCircle, Github } from 'lucide-react';
-import Link from 'next/link';
+import { MessageCircle } from 'lucide-react';
 
 export default function LoginPage() {
   const auth = useAuth();
@@ -25,6 +23,11 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleEmailAuth = async (type: 'login' | 'signup') => {
     if (!auth) return;
@@ -59,6 +62,8 @@ export default function LoginPage() {
     }
   };
 
+  if (!mounted) return null;
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
       <Card className="w-full max-w-md border-none shadow-2xl">
@@ -90,6 +95,7 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="rounded-xl"
+                  suppressHydrationWarning
                 />
               </div>
               <div className="space-y-2">
@@ -100,6 +106,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="rounded-xl"
+                  suppressHydrationWarning
                 />
               </div>
               {error && <p className="text-sm text-destructive font-semibold">{error}</p>}
