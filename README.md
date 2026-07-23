@@ -14,23 +14,9 @@ SpeakSmart AI is an AI-powered English speaking platform designed to help learne
 - Grammar correction
 - Pronunciation evaluation
 - Fast and responsive UI
-- Fully responsive design
+- Fully responsive desig
 
-## Deployment
-
-### Sync with GitHub
-Run these commands in your terminal to sync your local code with your repository:
-
-```bash
-git add .
-git commit -m "Final updates and styling"
-git push origin main --force
 ```
-
-### Deploy to Vercel
-1. **Import to Vercel:** Connect your GitHub repository.
-2. **Environment Variables:** Add `GOOGLE_GENAI_API_KEY` with your key from Google AI Studio.
-3. **Deploy:** Click the Deploy button.
 
 ## Tech Stack
 
