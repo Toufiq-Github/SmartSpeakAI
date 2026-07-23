@@ -4,7 +4,11 @@
 
 ## 📖 Overview
 
+<<<<<<< HEAD
 SpeakSmart AI is an AI-powered English speaking platform designed to help learners improve their spoken English through natural conversations with an intelligent AI assistant.
+=======
+Run these commands in your terminal to sync your code with GitHub:
+>>>>>>> ea07bf0 (i am deploing this on vercel, what should i do, guide me here)
 
 Unlike traditional language learning apps, SpeakSmart AI provides real-time conversational practice and detailed feedback on pronunciation, grammar, fluency, and vocabulary to accelerate language improvement.
 
@@ -23,6 +27,7 @@ Unlike traditional language learning apps, SpeakSmart AI provides real-time conv
 
 ---
 
+<<<<<<< HEAD
 ## 🛠 Tech Stack
 
 ### Frontend
@@ -130,3 +135,19 @@ This project is licensed under the MIT License.
 ---
 
 ## ⭐ If you found this project useful, consider giving it a star!
+=======
+Follow these steps to deploy your application:
+
+1.  **Import to Vercel:** Go to the Vercel dashboard and import your GitHub repository (`Toufiq-Github/SmartSpeakAI`).
+2.  **Configure Environment Variables:** Before clicking "Deploy", expand the **Environment Variables** section.
+3.  **Add the following key:**
+    *   `GOOGLE_GENAI_API_KEY`: Paste your Gemini API key here.
+4.  **Deploy:** Click the **Deploy** button.
+
+## Technical Stack
+
+- **Frontend:** Next.js 15
+- **AI Engine:** Google Genkit (Gemini 2.5 Flash)
+- **Backend:** Firebase (Authentication & Firestore)
+- **Styling:** Tailwind CSS + Shadcn UI
+>>>>>>> ea07bf0 (i am deploing this on vercel, what should i do, guide me here)
