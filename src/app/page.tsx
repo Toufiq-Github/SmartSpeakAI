@@ -49,7 +49,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white font-body selection:bg-primary/10 selection:text-primary relative overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-white font-body selection:bg-primary/10 selection:text-primary relative overflow-x-hidden" suppressHydrationWarning>
       {/* Background Texture */}
       <div 
         className="fixed inset-0 z-0 pointer-events-none opacity-[0.4] grayscale"
@@ -315,7 +315,7 @@ export default function Home() {
 
         {/* Final CTA */}
         <section className="container mx-auto px-4 py-24 md:py-48 text-center">
-            <div className="max-w-6xl mx-auto bg-primary text-white rounded-[3rem] md:rounded-[5rem] p-12 md:p-32 shadow-[0_50px_100px_rgba(79,70,229,0.3)] relative overflow-hidden">
+            <div className="max-w-6xl mx-auto bg-primary text-white rounded-[3rem] md:rounded-[5rem] p-12 md:p-32 shadow-[0_50px_100px_rgba(16,47,82,0.3)] relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-[100px]" />
                 <div className="relative z-10 space-y-10 md:space-y-16">
                   <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] animate-pulse">Speak English <br /> like a Native.</h2>
