@@ -7,14 +7,14 @@ export default function Logo({ className }: { className?: string }) {
     <Link
       href="/"
       className={cn(
-        'flex items-center gap-2 text-gray-900 font-bold text-xl group',
+        'flex items-center gap-2.5 text-gray-900 font-black text-2xl group transition-all',
         className
       )}
     >
-      <div className="bg-primary p-2 rounded-xl shadow-lg shadow-primary/20 transition-transform group-hover:scale-110">
-        <MessageCircle className="h-5 w-5 text-white" />
+      <div className="bg-primary p-2.5 rounded-[1rem] shadow-xl shadow-primary/25 transition-all group-hover:scale-110 group-hover:rotate-6">
+        <MessageCircle className="h-6 w-6 text-white" />
       </div>
-      <span className="font-headline tracking-tighter">SpeakSmart<span className="text-primary">AI</span></span>
+      <span className="font-headline tracking-tighter">SpeakSmart<span className="text-primary italic">AI</span></span>
     </Link>
   );
 }
