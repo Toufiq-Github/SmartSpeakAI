@@ -17,6 +17,7 @@ export function useSpeechService({ onListen }: UseSpeechServiceProps) {
   
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const speechTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   const { toast } = useToast();
 
@@ -38,34 +39,39 @@ export function useSpeechService({ onListen }: UseSpeechServiceProps) {
       recognition.lang = 'en-US';
 
       recognition.onresult = (event) => {
-        let finalTranscript = '';
+        let currentTranscript = '';
         for (let i = event.resultIndex; i < event.results.length; ++i) {
           if (event.results[i].isFinal) {
-            finalTranscript += event.results[i][0].transcript;
+            currentTranscript += event.results[i][0].transcript;
           }
         }
-        if (finalTranscript) {
-          addMessage({ role: 'user', text: finalTranscript.trim() });
+        
+        if (currentTranscript) {
+          // Add user message to UI
+          addMessage({ role: 'user', text: currentTranscript.trim() });
         }
       };
 
       recognition.onend = () => {
-        setIsListening(false);
-        mediaRecorderRef.current?.stop();
+        if (isListening) {
+          recognition.start(); // Auto-restart if we intended to keep listening
+        }
       };
       
       recognition.onerror = (event) => {
-        toast({
-            title: "Speech Recognition Error",
-            description: `An error occurred: ${event.error}. Please check your microphone permissions.`,
-            variant: "destructive",
-        });
-        setIsListening(false);
+        if (event.error !== 'no-speech') {
+            toast({
+                title: "Speech Recognition Error",
+                description: `Error: ${event.error}. Check microphone permissions.`,
+                variant: "destructive",
+            });
+            setIsListening(false);
+        }
       };
 
       recognitionRef.current = recognition;
     }
-  }, [toast]);
+  }, [toast, isListening]);
   
   const addMessage = useCallback((newMessage: Message) => {
     setMessages((prev) => [...prev, newMessage]);
@@ -89,7 +95,7 @@ export function useSpeechService({ onListen }: UseSpeechServiceProps) {
             }
         };
 
-        mediaRecorder.start();
+        mediaRecorder.start(1000); // Collect data every second
         recognitionRef.current.start();
         setIsListening(true);
     } catch (error) {
@@ -103,23 +109,33 @@ export function useSpeechService({ onListen }: UseSpeechServiceProps) {
 
   const stopListening = () => {
     if (!isListening || !recognitionRef.current) return;
-    recognitionRef.current.stop();
     setIsListening(false);
+    recognitionRef.current.stop();
     mediaRecorderRef.current?.stop();
+    if (speechTimeoutRef.current) clearTimeout(speechTimeoutRef.current);
   };
 
   const speak = (text: string) => {
     if (typeof window === 'undefined' || !window.speechSynthesis) return;
+    // Cancel any ongoing speech first
+    window.speechSynthesis.cancel();
+    
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'en-US';
+    utterance.rate = 1.0;
+    utterance.pitch = 1.0;
+    
     utterance.onstart = () => setIsSpeaking(true);
     utterance.onend = () => setIsSpeaking(false);
+    utterance.onerror = () => setIsSpeaking(false);
+    
     window.speechSynthesis.speak(utterance);
   };
   
   const clearSession = () => {
     setMessages([]);
     setAudioBlobs([]);
+    window.speechSynthesis.cancel();
   };
 
   return {
