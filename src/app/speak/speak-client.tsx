@@ -1,18 +1,23 @@
+
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import type { SessionScore, SpeakingMode } from '@/lib/types';
 import { getAIResponseAndFeedback, getSessionAnalysis } from '@/app/actions';
 import { useSpeechService } from '@/hooks/use-speech-service';
 import { Button } from '@/components/ui/button';
-import { Bot, Loader, Mic, Send, Square, User } from 'lucide-react';
+import { Mic, Send, Square } from 'lucide-react';
 import ModeSelector from '@/components/app/mode-selector';
 import ConversationArea from '@/components/app/conversation-area';
 import SessionSummaryDialog from '@/components/app/session-summary-dialog';
 import Logo from '@/components/logo';
 import Link from 'next/link';
+import { useUser, useFirestore } from '@/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function SpeakClient() {
+  const { user } = useUser();
+  const db = useFirestore();
   const [mode, setMode] = useState<SpeakingMode>('free');
   const [topic, setTopic] = useState('');
   const [sessionStarted, setSessionStarted] = useState(false);
@@ -83,12 +88,28 @@ export default function SpeakClient() {
     reader.onloadend = async () => {
       const base64Audio = reader.result as string;
       const analysis = await getSessionAnalysis(fullTranscript, base64Audio);
-      if(analysis){
-        const newScore: SessionScore = { ...analysis, date: new Date().toISOString() };
+      
+      if (analysis) {
+        const newScore: SessionScore = { 
+          ...analysis, 
+          date: new Date().toISOString() 
+        };
         setSessionScores(newScore);
         
-        const pastScores: SessionScore[] = JSON.parse(localStorage.getItem('speaksmart-sessions') || '[]');
-        localStorage.setItem('speaksmart-sessions', JSON.stringify([...pastScores, newScore]));
+        // Save to Firestore if user is authenticated
+        if (user && db) {
+          const sessionsRef = collection(db, 'users', user.uid, 'sessions');
+          addDoc(sessionsRef, {
+            ...analysis,
+            topic: topic || 'Free Conversation',
+            mode: mode,
+            date: serverTimestamp(),
+          });
+        } else {
+          // Fallback to local storage for guests
+          const pastScores: SessionScore[] = JSON.parse(localStorage.getItem('speaksmart-sessions') || '[]');
+          localStorage.setItem('speaksmart-sessions', JSON.stringify([...pastScores, newScore]));
+        }
       }
       setShowSummary(true);
       setIsLoading(false);

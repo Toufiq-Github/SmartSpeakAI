@@ -13,9 +13,31 @@
         "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": ["uid", "email"]
+    },
+    "SpeakingSession": {
+      "title": "Speaking Session",
+      "description": "A record of a user's practice session and AI analysis.",
+      "type": "object",
+      "properties": {
+        "date": { "type": "string", "format": "date-time" },
+        "fluencyScore": { "type": "number" },
+        "pronunciationScore": { "type": "number" },
+        "grammarAccuracyScore": { "type": "number" },
+        "confidenceScore": { "type": "number" },
+        "feedback": { "type": "string" },
+        "topic": { "type": "string" },
+        "mode": { "type": "string" }
+      },
+      "required": ["date", "fluencyScore", "pronunciationScore", "grammarAccuracyScore", "confidenceScore"]
     }
   },
   "auth": {
     "providers": ["google.com", "password"]
+  },
+  "firestore": {
+    "/users/{userId}/sessions/{sessionId}": {
+      "schema": "SpeakingSession",
+      "description": "History of speaking sessions for a specific user."
+    }
   }
 }
