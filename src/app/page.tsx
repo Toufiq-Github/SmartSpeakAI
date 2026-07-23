@@ -23,6 +23,7 @@ import {
   History,
   TrendingUp,
   MessageCircle,
+  LogOut,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -72,9 +73,15 @@ export default function Home() {
           <div className="flex items-center gap-2 sm:gap-4">
             {mounted && (
               user ? (
-                <Button asChild size="sm" className="rounded-full px-6 font-bold shadow-lg shadow-primary/20 bg-primary hover:bg-primary/90">
-                  <Link href="/speak">Practice Now</Link>
-                </Button>
+                <div className="flex items-center gap-4">
+                  <Button variant="ghost" size="sm" onClick={handleSignOut} className="text-gray-500 font-bold hover:text-destructive">
+                    <LogOut className="h-4 w-4 mr-2" />
+                    Sign Out
+                  </Button>
+                  <Button asChild size="sm" className="rounded-full px-6 font-bold shadow-lg shadow-primary/20 bg-primary hover:bg-primary/90">
+                    <Link href="/speak">Practice Now</Link>
+                  </Button>
+                </div>
               ) : (
                 <Button asChild size="sm" className="rounded-full px-6 font-bold shadow-lg shadow-primary/20 bg-primary hover:bg-primary/90">
                   <Link href="/login">Get Started</Link>
@@ -104,7 +111,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 items-center pt-4 w-full sm:w-auto px-4">
                 <Button asChild size="lg" className="h-16 px-12 text-lg font-black rounded-full group w-full sm:w-auto shadow-2xl shadow-primary/40 hover:scale-105 transition-all">
                   <Link href={mounted && user ? "/speak" : "/login"}>
-                    Start Speaking Free
+                    {user ? "Start Speaking Free" : "Get Started Free"}
                     <ArrowRight className="ml-2 h-6 w-6 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
