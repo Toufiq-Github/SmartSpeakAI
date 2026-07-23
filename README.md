@@ -1,59 +1,40 @@
 # 🎙️ SpeakSmart AI
 
-SpeakSmart AI is a focused tool for practicing spoken English with a human-like AI partner. It provides real-time analysis of pronunciation, grammar, and fluency.
+SpeakSmart AI is a tool for practicing spoken English with an AI partner. It provides analysis of pronunciation, grammar, and fluency.
 
-## 📖 Overview
+## Overview
 
-SpeakSmart AI is an AI-powered English speaking platform designed to help learners improve their spoken English through natural conversations with an intelligent AI assistant. Unlike traditional language learning apps, it provides real-time conversational practice and detailed feedback on pronunciation, grammar, fluency, and vocabulary to accelerate language improvement.
+SpeakSmart AI is an AI-powered English speaking platform designed to help learners improve their spoken English through natural conversations with an intelligent AI assistant. It provides real-time conversational practice and detailed feedback on pronunciation, grammar, fluency, and vocabulary.
 
----
+## Features
 
-## ✨ Features
+- AI-powered English conversations
+- Authentication via Firebase
+- Real-time speaking feedback
+- Grammar correction
+- Pronunciation evaluation
+- Fast and responsive UI
+- Fully responsive design
 
-- 🎤 AI-powered English conversations
-- 🔐 Authentication via Firebase
-- 📈 Real-time speaking feedback
-- 📝 Grammar correction
-- 🗣 Pronunciation evaluation
-- ⚡ Fast and responsive UI
-- 📱 Fully responsive design
-
----
-
-## 🚀 Deployment & Sync
+## Deployment
 
 ### Sync with GitHub
 Run these commands in your terminal to sync your local code with your repository:
 
 ```bash
 git add .
-git commit -m "Update application"
-git push origin main
+git commit -m "Final updates and styling"
+git push origin main --force
 ```
 
 ### Deploy to Vercel
-Follow these steps to deploy your application:
+1. **Import to Vercel:** Connect your GitHub repository.
+2. **Environment Variables:** Add `GOOGLE_GENAI_API_KEY` with your key from Google AI Studio.
+3. **Deploy:** Click the Deploy button.
 
-1. **Import to Vercel:** Go to the Vercel dashboard and import your GitHub repository (`Toufiq-Github/SmartSpeakAI`).
-2. **Configure Environment Variables:** Before clicking "Deploy", expand the **Environment Variables** section.
-3. **Add the Key:**
-   - **Key:** `GOOGLE_GENAI_API_KEY`
-   - **Value:** Paste your Gemini API key from Google AI Studio.
-4. **Deploy:** Click the **Deploy** button.
+## Tech Stack
 
----
-
-## 🛠 Tech Stack
-
-- **Frontend:** Next.js 15 (App Router), React, TypeScript
+- **Frontend:** Next.js 15, React, TypeScript
 - **AI Engine:** Google Genkit (Gemini 2.5 Flash)
-- **Backend:** Firebase (Authentication & Firestore)
+- **Backend:** Firebase (Auth & Firestore)
 - **Styling:** Tailwind CSS + Shadcn UI
-
----
-
-## 👨‍💻 Author
-
-**Shafaeat Hasan Toufiq**
-- LinkedIn: [shafaeat-hasan-toufiq](https://www.linkedin.com/in/shafaeat-hasan-toufiq/)
-- GitHub: [Toufiq-Github](https://github.com/Toufiq-Github)
