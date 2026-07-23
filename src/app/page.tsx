@@ -43,7 +43,6 @@ const features = [
 ];
 
 export default function Home() {
-  const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-speaking');
   const bgImage = PlaceHolderImages.find((img) => img.id === 'homepage-bg');
 
   return (
@@ -55,9 +54,10 @@ export default function Home() {
             src={bgImage.imageUrl}
             alt="Background"
             fill
-            className="object-cover opacity-10 grayscale"
+            className="object-cover opacity-30 grayscale"
             priority
           />
+          <div className="absolute inset-0 bg-background/40" />
         </div>
       )}
 
@@ -68,46 +68,31 @@ export default function Home() {
         </header>
 
         <main className="flex-grow">
-          <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <div className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                  Your AI Productivity Partner
-                </div>
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-foreground font-headline">
-                  AI Voice for Productivity
-                </h1>
-                <p className="text-lg text-muted-foreground">
-                  Stop just learning, start speaking. SpeakSmart AI is your personal
-                  voice assistant for practicing English. Get instant feedback, track
-                  your progress, and build real-world confidence.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild size="lg" className="font-semibold">
-                    <Link href="/speak">Start Speaking for Free</Link>
-                  </Button>
-                  <Button asChild size="lg" variant="outline">
-                    <Link href="#features">Learn More</Link>
-                  </Button>
-                </div>
+          <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+            <div className="max-w-3xl mx-auto text-center space-y-8">
+              <div className="inline-block bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-md">
+                Your AI Productivity Partner
               </div>
-              <div className="flex justify-center items-center">
-                {heroImage && (
-                  <Image
-                    src={heroImage.imageUrl}
-                    alt={heroImage.description}
-                    width={1200}
-                    height={800}
-                    className="w-full h-auto object-contain"
-                    priority
-                    data-ai-hint={heroImage.imageHint}
-                  />
-                )}
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-foreground font-headline">
+                AI Voice for Productivity
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Stop just learning, start speaking. SpeakSmart AI is your personal
+                voice assistant for practicing English. Get instant feedback, track
+                your progress, and build real-world confidence.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="font-semibold text-lg px-8">
+                  <Link href="/speak">Start Speaking for Free</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="font-semibold text-lg px-8 backdrop-blur-sm">
+                  <Link href="#features">Learn More</Link>
+                </Button>
               </div>
             </div>
           </section>
 
-          <section id="features" className="bg-card/50 backdrop-blur-sm py-16 md:py-24">
+          <section id="features" className="bg-card/40 backdrop-blur-md py-16 md:py-24 border-y">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center space-y-4 mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold font-headline">
@@ -120,7 +105,7 @@ export default function Home() {
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {features.map((feature) => (
-                  <Card key={feature.title} className="bg-background/80 backdrop-blur-sm border hover:shadow-lg transition-shadow">
+                  <Card key={feature.title} className="bg-background/60 backdrop-blur-sm border hover:shadow-lg transition-shadow">
                     <CardHeader>
                       {feature.icon}
                       <CardTitle className="pt-4 font-headline">{feature.title}</CardTitle>
@@ -142,14 +127,14 @@ export default function Home() {
                   <p className="text-lg text-muted-foreground mt-4 mb-8">
                       No more fear of judgment. No more expensive tutors. Just you and your AI coach, available 24/7.
                   </p>
-                  <Button asChild size="lg" className="font-semibold text-lg">
+                  <Button asChild size="lg" className="font-semibold text-lg px-12">
                     <Link href="/speak">Start Your First Session</Link>
                   </Button>
               </div>
           </section>
         </main>
 
-        <footer className="bg-card/80 backdrop-blur-sm border-t mt-auto">
+        <footer className="bg-card/60 backdrop-blur-sm border-t mt-auto">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-between items-center">
             <Logo />
             <p className="text-sm text-muted-foreground">
