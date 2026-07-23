@@ -1,43 +1,132 @@
-# SpeakSmart AI - Practice Spoken English
+# 🎙️ SpeakSmart AI
 
-Practice your spoken English with an AI partner. This tool provides real-time feedback on pronunciation, grammar, and fluency.
+> Practice speaking English with an AI-powered conversation partner and receive instant feedback on pronunciation, grammar, fluency, and vocabulary.
 
-## Push to GitHub
+## 📖 Overview
 
-Run these commands in your terminal:
+SpeakSmart AI is an AI-powered English speaking platform designed to help learners improve their spoken English through natural conversations with an intelligent AI assistant.
 
-1.  **Initialize Git:**
-    ```bash
-    git init
-    ```
+Unlike traditional language learning apps, SpeakSmart AI provides real-time conversational practice and detailed feedback on pronunciation, grammar, fluency, and vocabulary to accelerate language improvement.
 
-2.  **Add your remote repository:**
-    ```bash
-    git remote add origin https://github.com/Toufiq-Github/SmartSpeakAI.git
-    ```
+---
 
-3.  **Stage and commit your changes:**
-    ```bash
-    git add .
-    git commit -m "Initial commit"
-    ```
+## ✨ Features
 
-4.  **Push to the main branch:**
-    ```bash
-    git branch -M main
-    git push -u origin main
-    ```
+- 🎤 AI-powered English conversations
+- 🔐 Authentication
+- 📈 Real-time speaking feedback
+- 📝 Grammar correction
+- 📚 Vocabulary enhancement
+- 🗣 Pronunciation evaluation
+- ⚡ Fast and responsive UI
+- 📱 Fully responsive design
 
-## Deployment to Vercel
+---
 
-1.  Push your code to the GitHub repo linked above.
-2.  Import the repository into Vercel.
-3.  Add the `GOOGLE_GENAI_API_KEY` to your environment variables.
-4.  Deploy.
+## 🛠 Tech Stack
 
-## Technical Details
+### Frontend
 
-- **Frontend:** Next.js 15
-- **AI:** Google Genkit (Gemini 2.5 Flash)
-- **Database/Auth:** Firebase
-- **Styling:** Tailwind CSS + Shadcn UI
+- Next.js 15
+- React
+- TypeScript
+- Tailwind CSS
+- ShadCN UI
+
+
+### Development
+
+- ESLint
+- Prettier
+- npm
+
+---
+
+## 📂 Project Structure
+
+```text
+.
+├── app/
+├── components/
+├── lib/
+├── public/
+├── styles/
+├── hooks/
+├── types/
+├── firebase/
+├── next.config.ts
+├── package.json
+└── README.md
+```
+
+---
+
+
+## 🤖 AI Features
+
+The application leverages Google Gemini to provide:
+
+- Natural English conversations
+- Instant grammar correction
+- Pronunciation guidance
+- Vocabulary suggestions
+- Fluency evaluation
+- Personalized responses
+
+## 📌 Roadmap
+
+- [ ] Voice-to-Voice Conversation
+- [ ] IELTS Speaking Practice
+- [ ] Mock Interview Mode
+- [ ] Progress Dashboard
+- [ ] Daily Challenges
+- [ ] Learning Analytics
+- [ ] AI Tutor Personalization
+- [ ] Leaderboard
+- [ ] Dark Mode
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository.
+2. Create a feature branch.
+
+```bash
+git checkout -b feature/your-feature
+```
+
+3. Commit your changes.
+
+```bash
+git commit -m "Add your feature"
+```
+
+4. Push to GitHub.
+
+```bash
+git push origin feature/your-feature
+```
+
+5. Open a Pull Request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Shafaeat Hasan Toufiq**
+
+- LinkedIn: https://www.linkedin.com/in/shafaeat-hasan-toufiq/
+- GitHub: https://github.com/Toufiq-Github
+
+---
+
+## ⭐ If you found this project useful, consider giving it a star!
