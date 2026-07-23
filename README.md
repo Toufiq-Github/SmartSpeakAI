@@ -36,7 +36,7 @@ Once your code is on GitHub:
 2.  Click **"Add New..."** and then **"Project"**.
 3.  Import the `SmartSpeakAI` repository from your GitHub.
 4.  Ensure the Framework Preset is set to **Next.js**.
-5.  Add your environment variables (like `GEMINI_API_KEY`) in the "Environment Variables" section.
+5.  Add your environment variables (like `GOOGLE_GENAI_API_KEY`) in the "Environment Variables" section.
 6.  Click **Deploy**.
 
 ## Tech Stack
@@ -44,5 +44,6 @@ Once your code is on GitHub:
 - **Framework:** Next.js 15 (App Router)
 - **AI Engine:** Google Genkit (Gemini 2.5 Flash)
 - **UI Components:** Shadcn UI, Tailwind CSS
+- **Database/Auth:** Firebase
 - **Icons:** Lucide React
 - **Charts:** Recharts
