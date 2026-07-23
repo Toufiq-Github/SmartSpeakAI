@@ -1,6 +1,6 @@
 # 🎙️ SpeakSmart AI
 
-> Practice speaking English with an AI-powered conversation partner and receive instant feedback on pronunciation, grammar, fluency, and vocabulary.
+SpeakSmart AI is a focused tool for practicing spoken English with a human-like AI partner. It provides real-time analysis of pronunciation, grammar, and fluency.
 
 ## 📖 Overview
 
