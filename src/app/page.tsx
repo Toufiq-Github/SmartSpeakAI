@@ -120,18 +120,6 @@ export default function Home() {
                   Watch Demo
                 </Button>
               </div>
-              
-              <div className="flex flex-col items-center gap-4 pt-8 animate-in fade-in duration-1000 delay-500">
-                <div className="flex items-center gap-1.5">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                  ))}
-                  <span className="ml-2 text-lg font-black text-gray-900">4.9/5 Rating</span>
-                </div>
-                <p className="text-[10px] md:text-xs text-gray-400 font-black uppercase tracking-[0.25em]">
-                  Trusted by 50,000+ students • Powered by <span className="text-primary">Gemini 2.5</span>
-                </p>
-              </div>
             </div>
 
             {/* Product Interface Mockup - Block System */}
