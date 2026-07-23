@@ -29,6 +29,12 @@
       "description": "An abstract visualization of data points and connections on a dark background.",
       "imageUrl": "https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzY5NDk2MzU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "data abstract"
+    },
+    {
+      "id": "homepage-bg",
+      "description": "Abstract productivity background",
+      "imageUrl": "https://cdn.prod.website-files.com/63d98840a42cc68f41527a33/66b61b85b8e153d7f9801c4e_0c2113_9978482509ad47a3a8772a8449a392c3~mv2.jpg",
+      "imageHint": "abstract tech"
     }
   ]
 }
